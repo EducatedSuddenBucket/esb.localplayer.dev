@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gamer Profile</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #0d1117;
+            color: #c9d1d9;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #161b22;
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-gap: 20px;
+        }
+        h1 {
+            grid-column: span 2;
+            text-align: center;
+            margin-bottom: 30px;
+            color: #58a6ff;
+        }
+        .game-profile {
+            padding: 15px;
+            background-color: #21262d;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
+        .game-profile img {
+            width: 70px;
+            height: 70px;
+            margin-right: 20px;
+            border-radius: 8px;
+            transition: opacity 0.3s ease;
+        }
+        .game-profile img:hover {
+            opacity: 0.7;
+        }
+        .game-profile img:hover::after {
+            content: attr(alt);
+            position: absolute;
+            left: 50%;
+            bottom: -20px;
+            transform: translateX(-50%);
+            background-color: #30363d;
+            color: #c9d1d9;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 14px;
+            opacity: 1;
+        }
+        .game-details {
+            flex: 1;
+        }
+        .game-details p {
+            margin: 5px 0;
+        }
+        .game-details p strong {
+            color: #58a6ff;
+        }
+        .id-container {
+            background-color: #30363d;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 5px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .id-container span {
+            word-break: break-all;
+        }
+        .copy-btn {
+            background-color: #58a6ff;
+            color: #0d1117;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            border-radius: 3px;
+        }
+        .copy-btn:hover {
+            background-color: #1f6feb;
+        }
+
+        /* Media Query for Mobile Devices */
+        @media (max-width: 600px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+            h1 {
+                grid-column: span 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Gamer Profile</h1>
+        
+        <div class="game-profile">
+            <img src="mecharena.png" alt="Mech Arena">
+            <div class="game-details">
+                <p><strong>MechWarrior</strong></p>
+                <div class="id-container">
+                    <span id="mech-id">Mech12345</span>
+                    <button class="copy-btn" onclick="copyToClipboard('mech-id')">Copy ID</button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="game-profile">
+            <img src="https://via.placeholder.com/70x70?text=CoC" alt="Clash of Clans">
+            <div class="game-details">
+                <p><strong>CoCMaster</strong></p>
+                <div class="id-container">
+                    <span id="coc-id">CoC67890</span>
+                    <button class="copy-btn" onclick="copyToClipboard('coc-id')">Copy ID</button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="game-profile">
+            <img src="https://via.placeholder.com/70x70?text=MC" alt="Minecraft Bedrock">
+            <div class="game-details">
+                <p><strong>MinecraftUser</strong></p>
+                <div class="id-container">
+                    <span id="mc-id">MinecraftBedrockUser</span>
+                    <button class="copy-btn" onclick="copyToClipboard('mc-id')">Copy ID</button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="game-profile">
+            <img src="https://via.placeholder.com/70x70?text=Car" alt="Extreme Car Driving">
+            <div class="game-details">
+                <p><strong>N/A</strong></p>
+                <div class="id-container">
+                    <span>N/A</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="game-profile">
+            <img src="https://via.placeholder.com/70x70?text=Discord" alt="Discord">
+            <div class="game-details">
+                <p><strong>DiscordUser</strong></p>
+                <div class="id-container">
+                    <span id="discord-id">DiscordUser#1234</span>
+                    <button class="copy-btn" onclick="copyToClipboard('discord-id')">Copy ID</button>
+                </div>
+            </div>
+        </div>
+ 
+    </div>
+
+    <script>
+        function copyToClipboard(id) {
+            var copyText = document.getElementById(id).textContent;
+            navigator.clipboard.writeText(copyText).then(function() {
+                alert('Copied to clipboard: ' + copyText);
+            }, function(err) {
+                alert('Failed to copy text: ' + err);
+            });
+        }
+    </script>
+</body>
+</html>
